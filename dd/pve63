@@ -1,0 +1,16 @@
+#!ipxe
+dhcp
+set serverip 1.1.1.1
+menu Please choose an operating system to boot
+    item normal Install Proxmox
+    item debug Install Proxmox (Debug Mode)
+choose --default normal --timeout 50000 target && goto ${target}
+:debug
+    kernel http://odc.cxthhhhh.com/SyStem/Proxmox-VE/ImageData/6_v3-1/PVE-LOAD_6_v3-1 vga=791 video=vesafb:ywrap,mtrr ramdisk_size=16777216 rw quiet splash=verbose proxdebug initrd=PVE-SYS_6_v3-1
+    goto init
+:normal
+    kernel http://odc.cxthhhhh.com/SyStem/Proxmox-VE/ImageData/6_v3-1/PVE-LOAD_6_v3-1 vga=791 video=vesafb:ywrap,mtrr ramdisk_size=16777216 rw quiet splash=silent initrd=PVE-SYS_6_v3-1
+    goto init
+:init
+initrd http://pan.mygao.net/directlink/1/sys/pve63/PVE-SYS_6_v3-1.gz
+boot
