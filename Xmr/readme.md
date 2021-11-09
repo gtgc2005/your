@@ -1,5 +1,4 @@
 ```
-mkdir /docker/xmrig
 wget -P /docker/xmrig/ wget -P /docker/xmrig/ https://raw.githubusercontent.com/gtgc2005/your/main/Xmr/config.json
 ```
 
