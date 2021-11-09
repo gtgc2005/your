@@ -1,6 +1,6 @@
 ```
 mkdir /docker/xmrig
-wget -P /docker/xmrig/ https://github.com/snowdream/docker-xmr/blob/master/config.json
+wget -P /docker/xmrig/ wget -P /docker/xmrig/ https://raw.githubusercontent.com/gtgc2005/your/main/Xmr/config.json
 ```
 
 编辑配置文件 /docker/xmrig/config.json，修改以下内容
