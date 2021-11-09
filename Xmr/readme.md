@@ -20,7 +20,7 @@ wget -P /docker/xmrig/ wget -P /docker/xmrig/ https://raw.githubusercontent.com/
 ```
 
 运行docker
-
-`docker run --restart=always --network host -d -v /docker/xmrig/config.json:/etc/xmrig/config.json -e CPU_USAGE=50 --name xmr snowdream/xmr`
-
+```
+docker run --restart=always --network host -d -v /docker/xmrig/config.json:/etc/xmrig/config.json -e CPU_USAGE=50 --name xmr snowdream/xmr
+```
 注释：第四步 “ CPU_USAGE=50” 为CPU占用调整
