@@ -4,7 +4,7 @@
  3. nano 按照內文指示修改
  4. 加入crontab运行监测时间，不要低于30分钟。  
 ```crontab -e```  
-```*/30 * * * * /root/pqsapi.sh```
+```*/30 * * * * /root/ip-gfw.sh```
 
 
 - 自动监测Netflix解锁并切换IP脚本
