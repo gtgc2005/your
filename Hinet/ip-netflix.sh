@@ -6,13 +6,13 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 NAME="Hinet"
 
 # API=你更换IP的链接，每家不一样，自己替换，注意保留引号
-API="htts://"
+API="http://100.100.101.101:8002/changeip"
 
 # TG_BOT_TOKEN=自行前往@Botfather获取,默认null
-TG_BOT_TOKEN=null
+TG_BOT_TOKEN=1431974675:AAGp768u7wUfkm4WG-_EtGASKj6KnZOf0vU
 
 # TG_CHATID=与机器人@userinfobot 对话,默认null
-TG_CHATID=null
+TG_CHATID=-908699357
 COUNT=0
 SESSION=/usr/local/bin/.netflix_session
 UA_Browser="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari/537.36"
@@ -24,8 +24,8 @@ function Initialize {
     else
         echo "" > $SESSION
     fi
-    echo -e "Netflix检测自动换ip 1.01版"
-    echo -e "修改自https://github.com/Netflixxp/changip"    
+    echo -e "jcnf Netflix检测自动换ip 1.01版"
+    echo -e "频道 暂无"    
     Test
 }
 
@@ -81,7 +81,8 @@ function SendStartMsg {
 }
 
 function SendEndMsg {
-    TGMessage="已恢复解锁%0A服务器：$NAME%0A尝试次数：$COUNT"
+    HinetIp=$(curl -s ip.sb 2>&1)
+    TGMessage="已恢复解锁%0A服务器：$NAME%0A更换IP:$HinetIp%0A尝试次数：$COUNT"
     curl -s -X POST "https://api.telegram.org/bot$TG_BOT_TOKEN/sendMessage" -d chat_id=$TG_CHATID -d text="$TGMessage" -d parse_mode="HTML" >/dev/null 2>&1
 }
 
@@ -91,7 +92,7 @@ function Terminate {
 }
 
 if [ "$1" == "1" ]; then
-    echo -e "修改自https://github.com/Netflixxp/changip"
+    echo -e "[手动] 定制版"
     FirstNetflixResult="Originals Only"
     FirstGoogle="CN"
     COUNT=1
